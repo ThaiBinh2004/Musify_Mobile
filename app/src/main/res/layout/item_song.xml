@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:foreground="?attr/selectableItemBackground"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <!-- Ảnh bìa bài hát -->
+    <ImageView
+        android:id="@+id/imgSong"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Album Art"
+        android:background="@drawable/rounded_item_image"
+        android:clipToOutline="true"/>
+
+
+    <!-- Nội dung bài hát + trái tim -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp">
+
+        <!-- Tiêu đề và phụ đề -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Misery"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvArtist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maroon 5 - Misery"
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- Nút yêu thích nằm trong layout nội dung, sát bên phải -->
+        <ImageButton
+            android:layout_marginStart="8dp"
+            android:id="@+id/btnFavorite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/favor"
+            android:background="@null"
+            android:contentDescription="Favorite"
+            app:tint="#FF0000" />
+    </LinearLayout>
+</LinearLayout>

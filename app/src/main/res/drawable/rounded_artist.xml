@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FFFFFF" /> <!-- hoặc transparent nếu không muốn nền -->
+    <corners android:radius="60dp" /> <!-- 60dp để bo tròn đủ cho hình 120x120 -->
+</shape>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nowPlaying"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="16dp">
+
+
+    <!-- Header: Back + Tiêu đề + Yêu thích -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp">
+
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            android:contentDescription="Back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#7CEEFF"/>
+
+
+        <TextView
+            android:id="@+id/tvPlaylistTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnFavorite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/favor"
+            android:contentDescription="Favorite"
+            app:tint="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- Ảnh bìa album -->
+    <ImageView
+        android:id="@+id/imgCover"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:contentDescription="Album Cover"
+        android:scaleType="centerCrop"
+        android:background="@drawable/rounded_image"
+        android:clipToOutline="true"
+        />
+
+
+    <!-- Tên bài hát và nghệ sĩ -->
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgCover"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/tvSongTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ophelia"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Steven Price"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <!-- SeekBar và thời gian -->
+    <LinearLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp">
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#7CEEFF"
+            android:thumbTint="#7CEEFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/tvCurrentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1:25"
+                android:textColor="#7CEEFF"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvTotalTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3:15"
+                android:textColor="#7CEEFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Nút điều khiển -->
+    <LinearLayout
+        android:id="@+id/controlButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressLayout"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <!-- Nút Shuffle bên trái -->
+        <ImageView
+            android:id="@+id/btnShuffle"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_shuffle_off"
+            android:contentDescription="Shuffle"
+            app:tint="#7CEEFF" />
+
+        <!-- View trống để đẩy nút Shuffle sang trái -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Nút điều khiển trung tâm -->
+        <ImageView
+            android:id="@+id/btnPrev"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_previous"
+            android:contentDescription="Previous"
+            app:tint="#7CEEFF"/>
+
+        <ImageView
+            android:id="@+id/btnPlayPause"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/play"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="#FF4081"
+            android:contentDescription="Play/Pause"
+            app:tint="#7CEEFF"/>
+
+        <ImageView
+            android:id="@+id/btnNext"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_next"
+            android:contentDescription="Next"
+            app:tint="#7CEEFF"/>
+
+        <!-- View trống để đẩy nút Repeat sang phải -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            app:tint="#7CEEFF"/>
+
+        <!-- Nút Repeat bên phải -->
+        <ImageView
+            android:id="@+id/btnRepeat"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_repeat_off"
+            android:contentDescription="Repeat"
+            app:tint="#7CEEFF"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

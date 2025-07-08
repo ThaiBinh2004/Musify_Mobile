@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <gradient
+        android:angle="270"
+        android:type="linear"
+        android:startColor="#06A0B5"    />.
+<!--    android:centerColor="#005A88"      &lt;!&ndash; Xanh đậm hơn ở giữa &ndash;&gt;-->
+<!--    android:endColor="#003D5E"         &lt;!&ndash; Xanh đậm nhất &ndash;&gt;-->
+    />
+</shape>
