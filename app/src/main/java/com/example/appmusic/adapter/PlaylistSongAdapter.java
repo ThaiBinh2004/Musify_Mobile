@@ -43,7 +43,7 @@ public class PlaylistSongAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public Song getSongAt(int position) {
-        int realPosition = position - 1;
+        int realPosition = position ;
         return songList != null && realPosition >= 0 && realPosition < songList.size()
                 ? songList.get(realPosition) : null;
     }

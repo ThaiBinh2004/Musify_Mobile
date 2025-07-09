@@ -33,7 +33,7 @@ public class AuthViewModel extends AndroidViewModel {
             User user = userRepository.getUserByEmail(email);
             userLiveData.setValue(user);
 
-            // ✅ Lưu user_id vào SharedPreferences
+            //  Lưu user_id vào SharedPreferences
             getApplication()
                     .getSharedPreferences("user_session", Context.MODE_PRIVATE)
                     .edit()
@@ -63,12 +63,12 @@ public class AuthViewModel extends AndroidViewModel {
         }
     }
 
-    // ✅ Cho phép Fragment truy cập user hiện tại
+    //  Cho phép Fragment truy cập user hiện tại
     public LiveData<User> getUserLiveData() {
         return userLiveData;
     }
 
-    // ✅ Gọi khi cập nhật thông tin
+    //  Gọi khi cập nhật thông tin
     public boolean updateUser(User user) {
         boolean success = userRepository.updateUser(user);
         if (success) {
@@ -77,7 +77,7 @@ public class AuthViewModel extends AndroidViewModel {
         return success;
     }
 
-    // ✅ Gọi lại nếu cần reload user từ email
+    //  Gọi lại nếu cần reload user từ email
     public void loadUserByEmail(String email) {
         User user = userRepository.getUserByEmail(email);
         userLiveData.setValue(user);
