@@ -32,8 +32,16 @@ public class AuthViewModel extends AndroidViewModel {
         if (success) {
             User user = userRepository.getUserByEmail(email);
             userLiveData.setValue(user);
+
+            // ✅ Lưu user_id vào SharedPreferences
+            getApplication()
+                    .getSharedPreferences("user_session", Context.MODE_PRIVATE)
+                    .edit()
+                    .putInt("user_id", user.getId())
+                    .apply();
         }
     }
+
 
     // Đăng ký
     public void register(String username, String email, String password, String createdAt) {

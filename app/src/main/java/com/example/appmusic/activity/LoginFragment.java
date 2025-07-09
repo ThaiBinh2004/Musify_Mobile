@@ -1,6 +1,8 @@
 package com.example.appmusic.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -19,12 +21,15 @@ import androidx.navigation.Navigation;
 
 import com.example.appmusic.R;
 import com.example.appmusic.databinding.FragmentLoginBinding;
+import com.example.appmusic.model.User;
+import com.example.appmusic.repository.UserRepository;
 import com.example.appmusic.viewmodel.AuthViewModel;
 
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
     private AuthViewModel viewModel;
+    private UserRepository userRepository;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -71,6 +76,8 @@ public class LoginFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_login_to_register);
             }
         };
+
+
 
         spannable.setSpan(clickableSpan, start, fullText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.txtSignUp.setText(spannable);

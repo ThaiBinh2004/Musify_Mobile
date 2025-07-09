@@ -70,7 +70,7 @@ public class PlaylistSongAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (getItemViewType(position) == VIEW_TYPE_HEADER) {
             HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
             int total = songList != null ? songList.size() : 0;
-            headerHolder.tvHeader.setText("Tổng số bài hát: " + total);
+            headerHolder.tvHeader.setText(total+ " songs");
         } else {
             int realPosition = position - 1;
             Song song = songList.get(realPosition);

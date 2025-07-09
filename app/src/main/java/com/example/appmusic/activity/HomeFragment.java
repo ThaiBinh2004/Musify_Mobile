@@ -1,5 +1,7 @@
 package com.example.appmusic.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,6 +48,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     private PlaylistViewModel playlistViewModel;
     private AuthViewModel authViewModel;
+    private PlaylistRepository playlistRepository;
 
     private RecyclerView recyclerRecent;
     private RecyclerView recyclerRecommendation;
@@ -158,12 +161,17 @@ public class HomeFragment extends Fragment {
                 }
         );
         recyclerPlaylists.setAdapter(playlistAdapter);
-
         PlaylistRepository playlistRepository = new PlaylistRepository(requireContext());
-        int currentUserId = 1;
-        List<Playlist> playlists = playlistRepository.getPlaylistsByUser(currentUserId);
-        playlistAdapter.updatePlaylists(playlists);
 
+        SharedPreferences prefs = requireContext().getSharedPreferences("user_session", Context.MODE_PRIVATE);
+        int currentUserId = prefs.getInt("user_id", -1); // -1 nếu chưa đăng nhập
+
+        Log.d("UserSession", "Current user_id: " + currentUserId);
+
+        List<Playlist> playlists = playlistRepository.getPlaylistsByUser(currentUserId);
+        Log.d("Playlist", "Số playlist lấy được: " + playlists.size());
+
+        playlistAdapter.updatePlaylists(playlists);
 
 
 
