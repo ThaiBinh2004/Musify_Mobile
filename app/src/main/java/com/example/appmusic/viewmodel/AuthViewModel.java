@@ -86,5 +86,12 @@ public class AuthViewModel extends AndroidViewModel {
         userLiveData.setValue(null); // <- Bắt buộc
     }
 
+    public void resetLoginResult() {
+        loginResult.setValue(null);
+    }
+
+
+
+
 
 }

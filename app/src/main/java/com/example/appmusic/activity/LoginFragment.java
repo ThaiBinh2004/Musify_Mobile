@@ -48,13 +48,17 @@ public class LoginFragment extends Fragment {
         });
 
         viewModel.loginResult.observe(getViewLifecycleOwner(), success -> {
-            if (success) {
+            if (success != null && success) {
                 Toast.makeText(requireContext(), "Successful login", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).navigate(R.id.homeFragment);
-            } else {
+                viewModel.resetLoginResult(); // Thêm dòng này
+            } else if (success != null) {
                 Toast.makeText(requireContext(), "Incorrect username or password", Toast.LENGTH_SHORT).show();
+                viewModel.resetLoginResult();
             }
         });
+
+
 
         // Xử lý dòng chữ "Sign up"
         String fullText = "Don’t have an account? Sign up";
@@ -76,5 +80,7 @@ public class LoginFragment extends Fragment {
 
 
     }
+
+
 
 }
